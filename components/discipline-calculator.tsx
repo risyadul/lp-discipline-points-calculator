@@ -163,24 +163,26 @@ export function DisciplineCalculator() {
 
   return (
     <main className="surface-grid min-h-screen">
-      <section className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-5 py-6 sm:px-8 lg:px-10">
-        <div className="flex flex-1 flex-col gap-8">
+      <section className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-4 sm:px-8 sm:py-6 lg:px-10">
+        <div className="flex flex-1 flex-col gap-5 sm:gap-8">
           <header className="overflow-hidden rounded-[36px] border border-red-100 bg-white/90 shadow-panel">
             <div className="h-1.5 w-full bg-primary" />
-            <div className="grid gap-8 px-6 py-7 sm:px-8 sm:py-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)] lg:items-start">
-              <div className="flex flex-col gap-6">
-                <div className="flex flex-wrap items-center gap-3">
+            <div className="grid gap-5 px-4 py-5 sm:px-8 sm:py-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)] lg:items-start">
+              <div className="flex flex-col gap-4 sm:gap-6">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   <Badge variant="default" className="w-fit bg-primary text-primary-foreground">
                     Lion Parcel
                   </Badge>
-                  <span className="text-sm text-muted-foreground">Kalkulator batas telat bulanan</span>
+                  <span className="text-xs text-muted-foreground sm:text-sm">
+                    Kalkulator batas telat bulanan
+                  </span>
                 </div>
 
                 <div className="max-w-3xl">
-                  <h1 className="font-display text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+                  <h1 className="font-display text-[1.7rem] font-semibold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
                     Batas maksimal hari telat dengan target kedisiplinan minimum 85%.
                   </h1>
-                  <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+                  <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:mt-4 sm:text-lg sm:leading-7">
                     Sistem menghitung total shift efektif setelah mengurangi Sabtu,
                     Minggu, dan libur nasional hari kerja, lalu mencari toleransi telat
                     maksimum yang masih aman.
@@ -209,28 +211,28 @@ export function DisciplineCalculator() {
                 </div>
               </div>
 
-              <div className="rounded-[28px] border border-red-100 bg-red-50/75 p-5">
-                <div className="flex items-start gap-4">
-                  <div className="flex size-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+              <div className="rounded-[28px] border border-red-100 bg-red-50/75 p-4 sm:p-5">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="flex size-11 items-center justify-center rounded-2xl bg-primary text-primary-foreground sm:size-12">
                     <CalendarDays className="size-6" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-sm uppercase tracking-[0.18em] text-muted-foreground">
+                    <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground sm:text-sm">
                       Hasil Utama
                     </p>
-                    <p className="mt-2 text-4xl font-semibold tracking-tight text-foreground">
+                    <p className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
                       {totalLateDays} hari
                     </p>
-                    <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground sm:mt-3">
                       Maksimal hari telat yang masih menjaga poin kedisiplinan tetap
                       minimal 85% pada periode ini.
                     </p>
                   </div>
                 </div>
 
-                <Separator className="my-5" />
+                <Separator className="my-4 sm:my-5" />
 
-                <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:grid-cols-1 xl:grid-cols-3">
                   <HeaderMetric label="Total Shift" value={`${totalShift}`} />
                   <HeaderMetric label="Target 85%" value={`${minimumDisciplineTarget}`} />
                   <HeaderMetric label="Libur Kerja" value={`${nationalHolidayCount}`} />
@@ -239,19 +241,19 @@ export function DisciplineCalculator() {
             </div>
           </header>
 
-          <section className="grid gap-6 xl:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)]">
-            <Card className="bg-white/82">
+          <section className="grid gap-5 xl:items-start xl:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] xl:gap-6">
+            <Card className="order-1 self-start bg-white/82">
               <CardHeader>
                 <Badge variant="secondary" className="w-fit">
                   Parameter Bulanan
                 </Badge>
-                <CardTitle className="font-display text-3xl">Pilih periode</CardTitle>
+                <CardTitle className="font-display text-2xl sm:text-3xl">Pilih periode</CardTitle>
                 <CardDescription>
                   Pilih bulan dan tahun. Sistem akan menghitung akhir pekan, lalu
                   mengambil daftar libur nasional pada bulan tersebut.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="flex flex-col gap-6">
+              <CardContent className="flex flex-col gap-5 sm:gap-6">
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="month">Bulan</Label>
@@ -295,46 +297,54 @@ export function DisciplineCalculator() {
               </CardContent>
             </Card>
 
-            <div className="flex flex-col gap-6">
+            <div className="order-2 flex flex-col gap-5 xl:gap-6">
               <Card className="bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(255,247,238,0.92))]">
                 <CardHeader>
                   <Badge className="w-fit">Ringkasan Hasil</Badge>
-                  <CardTitle className="font-display text-3xl">
+                  <CardTitle className="font-display text-2xl sm:text-3xl">
                     {monthOptions[month]} {year}
                   </CardTitle>
                   <CardDescription>
                     Rekap total maksimal hari telat dari rumus total shift efektif dikurangi kebutuhan minimum 85%.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="flex flex-col gap-5">
+                <CardContent className="flex flex-col gap-4 sm:gap-5">
                   <div
                     className={cn(
-                      "rounded-[26px] border px-5 py-5",
+                      "rounded-[26px] border px-4 py-4 sm:px-5 sm:py-5",
                       isHolidayDataAvailable
                         ? "border-red-200 bg-red-50/80"
                         : "border-orange-200 bg-orange-50/80",
                     )}
                   >
-                    <div className="flex items-start gap-3">
-                      <AlertCircle
+                    <div className="flex items-start gap-4">
+                      <div
                         className={cn(
-                          "mt-1 size-5",
-                          isHolidayDataAvailable ? "text-red-600" : "text-orange-600",
+                          "flex size-11 shrink-0 items-center justify-center rounded-2xl",
+                          isHolidayDataAvailable ? "bg-red-100" : "bg-orange-100",
                         )}
-                      />
+                      >
+                        <AlertCircle
+                          className={cn(
+                            "size-5",
+                            isHolidayDataAvailable ? "text-red-600" : "text-orange-600",
+                          )}
+                        />
+                      </div>
                       <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                           Informasi Periode
                         </p>
-                        <p className="mt-2 text-base leading-7 text-foreground">
+                        <p className="mt-2 text-sm leading-6 text-foreground sm:text-base sm:leading-7">
                           {statusMessage}
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <ResultPanel
+                      className="col-span-2"
                       label="Total Hari Yang Bisa Digunakan Untuk Telat"
                       value={`${totalLateDays} hari`}
                       detail="Rumus: total shift efektif dikurangi jumlah minimum hari disiplin untuk mempertahankan 85%."
@@ -455,7 +465,7 @@ export function DisciplineCalculator() {
             </div>
           </section>
 
-          <footer className="flex flex-wrap items-center justify-between gap-4 rounded-[28px] border border-white/70 bg-white/72 px-5 py-4 shadow-panel">
+          <footer className="flex flex-col items-start justify-between gap-3 rounded-[28px] border border-white/70 bg-white/72 px-4 py-4 shadow-panel sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 sm:px-5">
             <div className="flex items-center gap-3">
               <div className="flex size-11 items-center justify-center rounded-2xl bg-primary/12">
                 <BriefcaseBusiness className="size-5 text-primary" />
@@ -475,17 +485,20 @@ export function DisciplineCalculator() {
 }
 
 type ResultPanelProps = {
+  className?: string;
   label: string;
   value: string;
   detail: string;
 };
 
-function ResultPanel({ label, value, detail }: ResultPanelProps) {
+function ResultPanel({ className, label, value, detail }: ResultPanelProps) {
   return (
-    <div className="rounded-[24px] border border-border bg-background/88 p-4">
+    <div className={cn("rounded-[24px] border border-border bg-background/88 p-4", className)}>
       <p className="text-sm text-muted-foreground">{label}</p>
-      <p className="mt-2 text-3xl font-semibold tracking-tight text-foreground">{value}</p>
-      <p className="mt-3 text-sm leading-6 text-muted-foreground">{detail}</p>
+      <p className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+        {value}
+      </p>
+      <p className="mt-2 text-sm leading-6 text-muted-foreground sm:mt-3">{detail}</p>
     </div>
   );
 }
@@ -497,9 +510,13 @@ type HeaderMetricProps = {
 
 function HeaderMetric({ label, value }: HeaderMetricProps) {
   return (
-    <div className="rounded-[20px] border border-red-100 bg-white/80 px-4 py-3">
-      <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{label}</p>
-      <p className="mt-2 text-2xl font-semibold tracking-tight text-foreground">{value}</p>
+    <div className="rounded-[20px] border border-red-100 bg-white/80 px-3 py-3 sm:px-4">
+      <p className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground sm:text-xs">
+        {label}
+      </p>
+      <p className="mt-1 text-xl font-semibold tracking-tight text-foreground sm:mt-2 sm:text-2xl">
+        {value}
+      </p>
     </div>
   );
 }
@@ -512,8 +529,8 @@ type TableRowProps = {
 function TableRow({ label, value }: TableRowProps) {
   return (
     <tr className="border-t border-border bg-white/70">
-      <td className="px-4 py-3 text-muted-foreground">{label}</td>
-      <td className="px-4 py-3 font-medium text-foreground">{value}</td>
+      <td className="px-4 py-3 align-top text-muted-foreground break-words">{label}</td>
+      <td className="px-4 py-3 align-top font-medium text-foreground break-words">{value}</td>
     </tr>
   );
 }
