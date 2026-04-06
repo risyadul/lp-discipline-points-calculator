@@ -62,3 +62,27 @@ body {
     0 1px 0 rgba(140, 0, 0, 0.08),
     0 18px 40px rgba(140, 0, 0, 0.08);
 }
+
+@keyframes metric-highlight {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.08);
+    background-color: rgba(255, 243, 243, 0.98);
+  }
+
+  35% {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(255, 0, 0, 0.12);
+    background-color: rgba(255, 234, 234, 0.98);
+  }
+
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    background-color: transparent;
+  }
+}
+
+.metric-highlight {
+  animation: metric-highlight 0.75s ease;
+}
