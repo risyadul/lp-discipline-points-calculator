@@ -23,8 +23,8 @@
   --input: 24 18% 84%;
   --ring: 18 90% 54%;
   --radius: 1.25rem;
-  --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
-  --font-display: "Gill Sans", "Trebuchet MS", "Avenir Next", sans-serif;
+  --font-sans: var(--font-inter), "Inter", "Segoe UI", sans-serif;
+  --font-display: var(--font-manrope), "Manrope", "Inter", sans-serif;
 }
 
 * {
